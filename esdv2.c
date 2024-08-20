@@ -14,7 +14,7 @@ int main(void)
     int n = 6;
 
     preencheVetor(nome, vNomes, n);
-    printf("|||||||||||||||||||||||||||\n\n");
+    printf("\n|||||||||||||||||||||||||||\n\n");
     exibeVetor(nome, vNomes, n);
     desalocarVetor(vNomes, n);
 
