@@ -2,10 +2,10 @@
 #include <string.h>
 #include <stdio.h>
 
-void preencheVetor(char nome[], char *vNomes[], int n);
-void ordenaVetor(char *vNomes[], int n);
-void exibeVetor(char *vNomes[], int n);
-void desalocarVetor(char *vNomes[], int n);
+void preencheVetor(char nome[], char **vNomes, int n);
+void ordenaVetor(char **vNomes, int n);
+void exibeVetor(char **vNomes, int n);
+void desalocarVetor(char **vNomes, int n);
 
 int main(void)
 {
@@ -17,8 +17,8 @@ int main(void)
 
     while (validar == 0)
     {
-        printf("vNomes estática [a] | vNomes dinâmica [b] | sair[c]: ");
-        scanf("%c", &opcao);
+        printf(" vNomes estática [a] | vNomes dinâmica [b] | sair[c]: ");
+        scanf(" %c", &opcao);
 
         switch (opcao)
         {
@@ -40,12 +40,13 @@ int main(void)
             printf("Quantidade de nomes a serem armazenados: ");
             scanf("%d", &n_din);
 
-            //*vNomes_din = (char *)malloc(sizeof(char *) * n_din);
+            vNomes_din = (char **)malloc(n_din);
 
             preencheVetor(nome, vNomes_din, n_din);
             printf("\n|||||||||||||||||||||||||||\n\n");
+            ordenaVetor(vNomes_din, n_din);
             exibeVetor(vNomes_din, n_din);
-            // desalocarVetor(vNomes_din, n_din);
+            desalocarVetor(vNomes_din, n_din);
             free(vNomes_din);
             break;
 
@@ -60,7 +61,7 @@ int main(void)
     return 0;
 }
 
-void exibeVetor(char *vNomes[], int n)
+void exibeVetor(char **vNomes, int n)
 {
     int i;
     for (i = 0; i < n; i++)
@@ -70,7 +71,7 @@ void exibeVetor(char *vNomes[], int n)
     printf("\n");
 }
 
-void ordenaVetor(char *vNomes[], int n)
+void ordenaVetor(char **vNomes, int n)
 {
     int i, j, k, tam;
     char *aux;
@@ -116,7 +117,7 @@ void ordenaVetor(char *vNomes[], int n)
     }
 }
 
-void desalocarVetor(char *vNomes[], int n)
+void desalocarVetor(char **vNomes, int n)
 {
     int i;
     for (i = 0; i < n; i++)
@@ -125,7 +126,7 @@ void desalocarVetor(char *vNomes[], int n)
     }
 }
 
-void preencheVetor(char nome[], char *vNomes[], int n)
+void preencheVetor(char nome[], char **vNomes, int n)
 {
     int i, tam;
     for (i = 0; i < n; i++)
