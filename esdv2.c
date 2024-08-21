@@ -80,7 +80,7 @@ void ordenaVetor(char *vNomes[], int n)
         for (j = 0; j < (n - 1); j++)
         {
             k = 0;
-            while (*vNomes[k] != '\0')
+            while (vNomes[j][k] != '\0')
             {
                 if (vNomes[j][k] > vNomes[j + 1][k])
                 {
@@ -96,10 +96,21 @@ void ordenaVetor(char *vNomes[], int n)
                     // v[j + 1] = aux;
                     free(vNomes[j + 1]);
                     tam = strlen(aux) + 1;
+                    vNomes[j + 1] = (char *)malloc(tam);
                     strcpy(vNomes[j + 1], aux);
                     break;
                 }
-                k++;
+                else
+                {
+                    if (vNomes[j][k] == vNomes[j + 1][k])
+                    {
+                        k++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
         }
     }
