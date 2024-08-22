@@ -40,7 +40,7 @@ int main(void)
             printf("Quantidade de nomes a serem armazenados: ");
             scanf("%d", &n_din);
 
-            vNomes_din = (char **)malloc(n_din);
+            vNomes_din = malloc(n_din * sizeof(char *));
 
             preencheVetor(nome, vNomes_din, n_din);
             printf("\n|||||||||||||||||||||||||||\n\n");
