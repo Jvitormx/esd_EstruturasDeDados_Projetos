@@ -36,7 +36,7 @@ int main(void)
     int i, n_pessoas;
     float limiar;
 
-    printf("Quantidade de pessoas [MAX 20]: ");
+    printf("Quantidade de pessoas: ");
     scanf("%d", &n_pessoas);
 
     // inicializa pessoas com nomes e respostas
