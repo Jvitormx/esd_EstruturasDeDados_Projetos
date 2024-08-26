@@ -63,7 +63,7 @@ float calcularDistancia(respQuestionario respostasP1[], respQuestionario respost
 
 void encontrarCompatibilidade(char *nome, TPessoa pessoas[], int lim_distancia, int n_pessoas)
 {
-    int i, j, quant_pessoas_compativeis = 0;
+    int i, j;
     float distancia;
 
     PTPessoa pessoa_escolhida;
