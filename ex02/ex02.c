@@ -57,7 +57,7 @@ int main(void)
 
 float calcularDistancia(respQuestionario respostasP1[], respQuestionario respostasP2[])
 {
-    float d = sqrt((pow(respostasP1[0] - respostasP2[0], 2.0)) + (pow(respostasP1[1] - respostasP2[1], 2.0)));
+    float d = sqrt((pow(respostasP2[0] - respostasP1[0], 2.0)) + (pow(respostasP2[1] - respostasP1[1], 2.0)));
     return d;
 }
 
@@ -85,6 +85,7 @@ void encontrarCompatibilidade(char *nome, TPessoa pessoas[], int lim_distancia, 
     {
         if (strcmp(nome, pessoas[i].nome) != 0)
         {
+            // calculando distancia entre as respostas da pessoa escolhida e as demais respostas
             distancia = calcularDistancia(pessoa_escolhida->respostas, pessoas[i].respostas);
             if (distancia < lim_distancia)
             {
