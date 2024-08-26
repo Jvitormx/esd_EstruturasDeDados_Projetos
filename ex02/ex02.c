@@ -22,6 +22,8 @@ void encontrarCompatibilidade(char *nome, TPessoa pessoas[], int lim_distancia, 
 
 PTPessoa inicializarPessoas(char **vNomAux, int n_pessoas);
 
+void desalocarNomes(PTPessoa pessoas, int n_pessoas);
+
 int main(void)
 {
     char *vNomAux[] = {"Jose", "Joao", "Maria", "Ana", "Francisca", "Antonio", "Pedro", "Juliana", "Luíz", "Sara",
@@ -53,6 +55,19 @@ int main(void)
 
     // mostra pessoas compativeis com pessoa escolhida
     encontrarCompatibilidade(nome_pessoa, pessoas, limiar, n_pessoas);
+
+    desalocarNomes(pessoas, n_pessoas);
+
+    free(pessoas);
+}
+
+void desalocarNomes(PTPessoa pessoas, int n_pessoas)
+{
+    int i;
+    for (i = 0; i < n_pessoas; i++)
+    {
+        free(pessoas[i].nome);
+    }
 }
 
 float calcularDistancia(respQuestionario respostasP1[], respQuestionario respostasP2[])
@@ -93,6 +108,8 @@ void encontrarCompatibilidade(char *nome, TPessoa pessoas[], int lim_distancia, 
             }
         }
     }
+
+    free(pessoa_escolhida);
 }
 
 PTPessoa inicializarPessoas(char **vNomAux, int n_pessoas)
