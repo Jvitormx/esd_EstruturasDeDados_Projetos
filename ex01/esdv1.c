@@ -9,9 +9,9 @@ int main(void)
 {
 
     int x = 5;
-    int vet1[] = {4, 7, 8, 3, 2, 5};
+    int vet1[] = {4, 7, 8, 3};
     int *vet2;
-    int qt2 = 7;
+    int qt2 = 4;
 
     vet2 = (int *)malloc(sizeof(int) * qt2);
     // preencheVetor(vet1,3);
